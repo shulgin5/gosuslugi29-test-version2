@@ -39,19 +39,19 @@ public class FindServicesForTest extends BasePage {
         catalogPage.loadMore();
         List<String> categories = catalogPage.getLinksCategories();
         Steps.checkCategoriesCount(categories.size());
-        try (FileOutputStream fileOutputStream = new FileOutputStream(fileName);
+        try (FileOutputStream fileOutputStream = new FileOutputStream(fileName, false);
              BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream))){
             for(String category : categories) {
                 open(category);
                 catalogPage.loadMore();
                 Map<String, String> services = catalogPage.getLinksServices();
-                    for(Map.Entry<String, String> service : services.entrySet()) {
-                        String value = Optional.ofNullable(service.getValue()).orElse("Наименование не найдено");
-                        bufferedWriter.write(service.getKey());
-                        bufferedWriter.write("\t");
-                        bufferedWriter.write(value);
-                        bufferedWriter.newLine();
-                    }
+                for(Map.Entry<String, String> service : services.entrySet()) {
+                    String value = Optional.ofNullable(service.getValue()).orElse("Наименование не найдено");
+                    bufferedWriter.write(service.getKey());
+                    bufferedWriter.write("\t");
+                    bufferedWriter.write(value);
+                    bufferedWriter.newLine();
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
