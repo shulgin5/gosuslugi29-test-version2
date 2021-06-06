@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Finder" data-provider-thread-count="5">
-<!--    <test name="Find services">
+    <test name="Find services">
         <classes>
             <class name="tests.FindServicesForTest"/>
         </classes>
-    </test>-->
+    </test>
     <test name="Check services">
         <classes>
             <class name="tests.MainTest"/>
