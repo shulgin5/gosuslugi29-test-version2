@@ -13,6 +13,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 import static com.codeborne.selenide.Selenide.open;
 
 public class FindServicesForTest extends BasePage {
@@ -44,9 +46,10 @@ public class FindServicesForTest extends BasePage {
                 catalogPage.loadMore();
                 Map<String, String> services = catalogPage.getLinksServices();
                     for(Map.Entry<String, String> service : services.entrySet()) {
+                        String value = Optional.ofNullable(service.getKey()).orElse("Наименование не найдено");
                         bufferedWriter.write(service.getKey());
                         bufferedWriter.write("\t");
-                        bufferedWriter.write(service.getValue());
+                        bufferedWriter.write(value);
                         bufferedWriter.newLine();
                     }
             }
