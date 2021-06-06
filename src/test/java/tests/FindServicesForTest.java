@@ -46,7 +46,7 @@ public class FindServicesForTest extends BasePage {
                 catalogPage.loadMore();
                 Map<String, String> services = catalogPage.getLinksServices();
                     for(Map.Entry<String, String> service : services.entrySet()) {
-                        String value = Optional.of(service.getValue()).orElse("Наименование не найдено");
+                        String value = Optional.ofNullable(service.getValue()).orElse("Наименование не найдено");
                         bufferedWriter.write(service.getKey());
                         bufferedWriter.write("\t");
                         bufferedWriter.write(value);
