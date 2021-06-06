@@ -16,15 +16,17 @@ public class MainTest extends BasePage{
     @DataProvider(name = "services", parallel = true)
     public Object[][] allServices() {
         int countLines = Utils.countLinesInFile(fileName);
-        System.out.println(countLines);
         Object[][] objects = new Object[countLines][2];
-        int i = 0;
         try (FileInputStream fileInputStream = new FileInputStream(fileName);
              BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream))){
+            int i = 0;
             while(bufferedReader.ready()){
                 String line = bufferedReader.readLine();
                 if (line != null && !line.equals("")) {
                     String[] parameters = line.split("\t");
+                    System.out.println(i);
+                    System.out.println(parameters[1]);
+                    System.out.println(parameters[0]);
                     objects[i][0] = parameters[1];
                     objects[i][1] = parameters[0];
                     i++;
