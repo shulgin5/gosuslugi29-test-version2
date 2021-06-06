@@ -16,6 +16,7 @@ public class MainTest extends BasePage{
     @DataProvider(name = "services", parallel = true)
     public Object[][] allServices() {
         int countLines = Utils.countLinesInFile(fileName);
+        System.out.println(countLines);
         Object[][] objects = new Object[countLines][2];
         int i = 0;
         try (FileInputStream fileInputStream = new FileInputStream(fileName);
