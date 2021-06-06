@@ -24,12 +24,14 @@ public class MainTest extends BasePage{
                 String line = bufferedReader.readLine();
                 if (line != null && !line.equals("")) {
                     String[] parameters = line.split("\t");
-                    System.out.println(i);
-                    System.out.println(parameters[1]);
-                    System.out.println(parameters[0]);
-                    objects[i][0] = parameters[1];
-                    objects[i][1] = parameters[0];
-                    i++;
+                    if (parameters.length == 2){
+                        objects[i][0] = parameters[1];
+                        objects[i][1] = parameters[0];
+                        i++;
+                    } else {
+                        objects[i][0] = parameters[0];
+                        objects[i][1] = "Not found";
+                    }
                 }
             }
         }catch (IOException e) {
