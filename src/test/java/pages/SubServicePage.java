@@ -12,7 +12,7 @@ import static com.codeborne.selenide.Selenide.$$;
 public class SubServicePage {
     private static final SelenideElement buttonGet = $(byXpath("//*[contains(text(),'Получить услугу')]"));
     private static final SelenideElement buttonAppointment = $(byXpath("//*[contains(text(),'Записаться')]"));
-    private static final SelenideElement buttonAllInfo = $(byXpath("//a[@class='service-details-link']"));
+    private static final SelenideElement buttonAllInfo = $(byXpath("//*[contains(text(),'Подробная информация об услуге')]"));
     private static final SelenideElement regulationsLink = $(byXpath("//a[@class='reglament-link']"));
     private static final SelenideElement deadlineComplete = $(byXpath("//p[@class='attr-title' and contains(text(),'Срок выполнения услуги:')]/following::div[1]"));
     private static final SelenideElement cost = $(byXpath("//*[@id='dataGrpcost']/ancestor::h3/following-sibling::div"));
@@ -22,7 +22,8 @@ public class SubServicePage {
     private static final List<SelenideElement> refusalsElements = $$(byXpath("//*[contains(text(),'Основание для приостановления/отказа')]/following-sibling::ul/li"));
     private static final List<SelenideElement> categoriesElements = $$(byXpath("//*[@id='dataGrpcategory']/ancestor::h3/following-sibling::div[1]/div/div[@class='attr-title']"));
     private static final List<SelenideElement> resultsElements = $$(byXpath("//*[contains(text(),'Результат оказания услуги:')]/following-sibling::div/ul/li"));
-
+    //a[@class='service-details-link']
+    //*[contains(text(),'Подробная информация об услуге')]
     public boolean existsButtonGet() {
         return buttonGet.exists();
     }
