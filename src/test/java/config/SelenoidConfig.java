@@ -14,7 +14,7 @@ public class SelenoidConfig {
         Configuration.remote = "http://localhost:4444/wd/hub";
         Configuration.timeout = 10000;
         Configuration.reportsFolder = "target/screenshots";
-        Configuration.clickViaJs = true;
+        //Configuration.clickViaJs = true;
         Configuration.startMaximized = true;
         Configuration.baseUrl = "";
         Configuration.browserCapabilities.setCapability("enableVNC", true);
